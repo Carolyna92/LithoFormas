@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LithoFormas.Ver_Registros"
+             NavigationPage.HasBackButton="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <SearchBar x:Name="buscarRSB"
+                       TextChanged="buscarRegistrosSB_TextChanged"
+                       BackgroundColor="White"
+                       Placeholder="BUSCAR POR TITULO">
+                </SearchBar>
+                <ActivityIndicator HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       IsVisible="False"
+                       IsEnabled="True"
+                       x:Name="syncIndicator"/>
+                <ListView x:Name="registrosLV"
+                      ItemsSource="{Binding items}"
+                      CachingStrategy="RecycleElement"
+                      ItemSelected="registrosLV_ItemSelected"
+                      IsPullToRefreshEnabled="True"
+                      IsRefreshing="True"
+                      Refreshing="registrosLV_Refreshing">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="20"/>
+                                        <RowDefinition Height="90"/>
+                                        
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Titulo" Grid.Column="0" Grid.Row="0"/>
+                                    <Label Text="{Binding Titulo}" Grid.Column="0" Grid.Row="1" />
+                                    <Label Text="Persona Asignada" Grid.Column="1" Grid.Row="0"/>
+                                    <Label Text="{Binding Nombre_Persona}" Grid.Column="1" Grid.Row="1"/>
+                                    <Label Text="Prioridad" Grid.Column="2" Grid.Row="0" />
+                                    <Picker  SelectedIndex="{Binding Prioridad}" Grid.Column="2" Grid.Row="1"  BackgroundColor="White" IsEnabled="False">
+                                        <Picker.ItemsSource >
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String >Alta</x:String>
+                                                <x:String >Media</x:String>
+                                                <x:String >Baja</x:String>
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+                                    <Label Text="Fecha Limite" Grid.Column="3" Grid.Row="0" />
+                                    <Label Text="{Binding Fecha_Entrega}" Grid.Column="3" Grid.Row="1" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

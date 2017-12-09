@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LithoFormas.Usuarios">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar x:Name="b_id" Placeholder="Buscar po ID" TextChanged="b_id_TextChanged"></SearchBar>
+            <Image></Image>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Text="ID" Grid.Column="0" Grid.Row="0"/>
+                <Picker x:Name="user_id" Grid.Column="1" Grid.Row="0" SelectedIndexChanged="user_id_SelectedIndexChanged">
+                </Picker>
+                <Label Text="Nombre" Grid.Column="0" Grid.Row="1"/>
+                <Entry x:Name="nombre" Grid.Column="1" Grid.Row="1"/>
+                <Label Text="Rol de Usuario" Grid.Column="0" Grid.Row="2"/>
+                <Picker x:Name="rol" Grid.Row="2" Grid.Column="1" BackgroundColor="White">
+                    <Picker.ItemsSource >
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String >Administrador</x:String>
+                            <x:String >Usuario</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </Grid>
+            <Button x:Name="actualizar" Text="Actualizar usuario" Clicked="actualizar_Clicked"/>
+            <Label x:Name="usuario_ID" IsEnabled="False" IsVisible="False"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

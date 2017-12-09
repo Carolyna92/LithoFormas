@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LithoFormas.Registro_T"
+             Title="Nueva Tarea">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="Titulo" Grid.Row="0"/>
+                    <Entry x:Name="titulo_tarea" Grid.Row="1" TextChanged="titulo_tarea_TextChanged"></Entry>
+                    <Label Text="Descripcion" Grid.Row="2"/>
+                    <Editor x:Name="Descripcion" MinimumHeightRequest="310" MinimumWidthRequest="320" Grid.Row="3" TextChanged="Descripcion_TextChanged"/>
+                    <Picker x:Name="PA" Title="Persona_Asignada" Grid.Row="4" SelectedIndexChanged="PA_SelectedIndexChanged"/>
+                    <Picker x:Name="Prip" Title="Prioridad" Grid.Row="5"  BackgroundColor="White" SelectedIndexChanged="Prip_SelectedIndexChanged">
+                        <Picker.ItemsSource >
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String >Alta</x:String>
+                                <x:String >Media</x:String>
+                                <x:String >Baja</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <DatePicker x:Name="Fecha_Entrega" Grid.Row="6">
+                        <DatePicker.MaximumDate>
+                            12/31/2018
+                        </DatePicker.MaximumDate>
+                        <DatePicker.MinimumDate>
+                            12/11/2017
+                        </DatePicker.MinimumDate>
+                    </DatePicker>
+                    <Picker x:Name="Dependencia" Title="Dependencia" Grid.Row="7" BackgroundColor="White" SelectedIndexChanged="Dependencia_SelectedIndexChanged"/>
+                    <Picker x:Name="E" Title="Estatus" Grid.Row="8" BackgroundColor="White" >
+                        <Picker.ItemsSource >
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String >Creada</x:String>
+                                <x:String >En ejecución</x:String>
+                                <x:String >Completada</x:String>
+                                <x:String >No Completada</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Button Grid.Row="9" x:Name="Guardar" Text="Guardar" TextColor="White" BackgroundColor="MediumAquamarine" Clicked="Guardar_Clicked"></Button>
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
