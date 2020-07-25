@@ -7,7 +7,6 @@ namespace LithoFormas
     public partial class App : Application
     {
         public static PublicClientApplication IdentityClientApp = null;
-        public static UIParent UiParent = null;
 
         public static string ClientID = "d86708cf-239f-4988-b650-98e9dc5b80cd";
         public static string[] Scopes = { "https://graph.microsoft.com/User.Read",

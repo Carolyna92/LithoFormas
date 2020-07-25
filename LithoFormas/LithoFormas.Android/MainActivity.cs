@@ -1,14 +1,12 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using Android.Webkit;
+using System;
 
 namespace LithoFormas.Droid
 {
